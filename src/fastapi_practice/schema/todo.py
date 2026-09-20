@@ -5,10 +5,11 @@ from pydantic import BaseModel, Field, ConfigDict
 class CreateTodoSchema(BaseModel):
     title : str = Field(..., min_length=1, max_length=150)
     description : str | None = Field(default=None, max_length=2000)
+    is_completed : bool = Field(default=False)
 
 
 class UpdateTodoSchema(BaseModel):
-    title : str | None = Field(min_length=1, max_length=150)
+    title : str = Field(min_length=1, max_length=150)
     description : str | None = Field(default=None, max_length=2000)
     is_completed : bool = Field(default=False)
 
