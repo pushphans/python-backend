@@ -4,6 +4,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     PROJECT_NAME : str
     DATABASE_URL : str
+    JWT_SECRET_KEY : str
+    ACCESS_TOKEN_EXPIRY : int
+    REFRESH_TOKEN_EXPIRY : int
 
 
     model_config = SettingsConfigDict(
