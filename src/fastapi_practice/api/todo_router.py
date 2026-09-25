@@ -13,7 +13,8 @@ from sqlalchemy import select
 
 
 todo_router = APIRouter(
-    prefix="/todo"
+    prefix="/todo",
+    tags=["Todo"]
 )
 
 
@@ -156,7 +157,7 @@ async def get_todo(
             .where(Todo.title.ilike(f"%{search}%"))
         )
 
-    if is_completed:
+    if is_completed is not None:
         query = (
             query
             .where(Todo.is_completed == is_completed)
