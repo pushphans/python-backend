@@ -1,3 +1,4 @@
+from fastapi_practice.models.user_model import UserModel
 from fastapi_practice.schema.todo import UpdateTodoSchema
 from sqlalchemy.orm import query
 from fastapi import status
@@ -21,7 +22,10 @@ todo_router = APIRouter(
 
 # CREATING TODO IN DB
 @todo_router.post("/create-todo", response_model=TodoResponseSchema, status_code=status.HTTP_201_CREATED)
-async def create_todo(data : CreateTodoSchema, db : AsyncSession = Depends(get_db)):
+async def create_todo(
+    data : CreateTodoSchema,
+    db : AsyncSession = Depends(get_db),
+    ):
     todo : Todo = Todo(
         title = data.title,
         description = data.description,

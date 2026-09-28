@@ -2,7 +2,7 @@ from sqlalchemy import DateTime
 from datetime import datetime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import mapped_column, Mapped
-from sqlalchemy import Text, Date, func, Boolean
+from sqlalchemy import Text, func
 from fastapi_practice.db.database import Base
 
 
